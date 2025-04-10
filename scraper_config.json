@@ -1,0 +1,103 @@
+{
+  "sites": [
+    {
+      "id": "site1_001",
+      "name": "site1",
+      "connection_type": "url",
+      "connection_library": "requests",
+      "url_search": {
+        "url": "https://www.site1.com/WDA_PARTNUMBER",
+        "keyword": "WDA_PARTNUMBER"
+      },
+      "output": {
+        "save_html": true,
+        "output_dir": "./scraped_data/site1"
+      }
+    },
+    {
+      "id": "site2_002",
+      "name": "site2",
+      "connection_type": "form",
+      "connection_library": "selenium",
+      "form_search": {
+        "url": "https://www.site2.com/",
+        "search_input_xpath": "//input[@id='search-box']",
+        "submit_button_xpath": "//button[@type='submit']",
+        "chrome_options": {
+          "disable_extensions": true,
+          "headless": false,
+          "disable_gpu": true,
+          "disable_images": true,
+          "disable_javascript": true,
+          "log_level": 3
+        }
+      },
+      "output": {
+        "save_html": true,
+        "output_dir": "./scraped_data/site2"
+      }
+    },
+    {
+      "id": "site3_003",
+      "name": "site3",
+      "connection_type": "url",
+      "connection_library": "cloudscraper",
+      "url_search": {
+        "url": "https://www.site3.com/search?q=WDA_PARTNUMBER",
+        "keyword": "WDA_PARTNUMBER"
+      },
+      "output": {
+        "save_html": false,
+        "output_dir": "./scraped_data/site3"
+      }
+    },
+    {
+      "id": "mitac_004",
+      "name": "mitac",
+      "connection_type": "post",
+      "connection_library": "cloudscraper",
+      "post_search": {
+        "url": "https://www.mitaccomputing.com/en/Search",
+        "data_field": "search",
+        "headers": {
+          "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36",
+          "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
+          "Accept-Language": "en-US,en;q=0.5",
+          "Referer": "https://www.mitaccomputing.com/",
+          "Connection": "keep-alive"
+        }
+      },
+      "output": {
+        "save_html": true,
+        "output_dir": "./scraped_data/mitac"
+      }
+    },
+    {
+      "id": "api_example_005",
+      "name": "api_example",
+      "connection_type": "api",
+      "api_search": {
+        "url": "https://api.example.com/search",
+        "method": "GET",
+        "search_param_name": "query",
+        "headers": {
+          "Authorization": "Bearer YOUR_API_KEY",
+          "Content-Type": "application/json",
+          "Accept": "application/json"
+        },
+        "params": {
+          "limit": 10,
+          "format": "full"
+        }
+      },
+      "output": {
+        "save_html": true,
+        "output_dir": "./scraped_data/api_example"
+      }
+    }
+  ]
+}
+
+
+
+
